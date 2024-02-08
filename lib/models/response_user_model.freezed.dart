@@ -20,10 +20,10 @@ ResponseUserModel _$ResponseUserModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ResponseUserModel {
-  String get tokenType => throw _privateConstructorUsedError;
-  String get accessToken => throw _privateConstructorUsedError;
-  String get expiresIn => throw _privateConstructorUsedError;
-  String get refreshToken => throw _privateConstructorUsedError;
+  String? get tokenType => throw _privateConstructorUsedError;
+  String? get accessToken => throw _privateConstructorUsedError;
+  String? get expiresIn => throw _privateConstructorUsedError;
+  String? get refreshToken => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,10 +38,10 @@ abstract class $ResponseUserModelCopyWith<$Res> {
       _$ResponseUserModelCopyWithImpl<$Res, ResponseUserModel>;
   @useResult
   $Res call(
-      {String tokenType,
-      String accessToken,
-      String expiresIn,
-      String refreshToken});
+      {String? tokenType,
+      String? accessToken,
+      String? expiresIn,
+      String? refreshToken});
 }
 
 /// @nodoc
@@ -57,28 +57,28 @@ class _$ResponseUserModelCopyWithImpl<$Res, $Val extends ResponseUserModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tokenType = null,
-    Object? accessToken = null,
-    Object? expiresIn = null,
-    Object? refreshToken = null,
+    Object? tokenType = freezed,
+    Object? accessToken = freezed,
+    Object? expiresIn = freezed,
+    Object? refreshToken = freezed,
   }) {
     return _then(_value.copyWith(
-      tokenType: null == tokenType
+      tokenType: freezed == tokenType
           ? _value.tokenType
           : tokenType // ignore: cast_nullable_to_non_nullable
-              as String,
-      accessToken: null == accessToken
+              as String?,
+      accessToken: freezed == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
-              as String,
-      expiresIn: null == expiresIn
+              as String?,
+      expiresIn: freezed == expiresIn
           ? _value.expiresIn
           : expiresIn // ignore: cast_nullable_to_non_nullable
-              as String,
-      refreshToken: null == refreshToken
+              as String?,
+      refreshToken: freezed == refreshToken
           ? _value.refreshToken
           : refreshToken // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -92,10 +92,10 @@ abstract class _$$ResponseUserModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String tokenType,
-      String accessToken,
-      String expiresIn,
-      String refreshToken});
+      {String? tokenType,
+      String? accessToken,
+      String? expiresIn,
+      String? refreshToken});
 }
 
 /// @nodoc
@@ -109,28 +109,28 @@ class __$$ResponseUserModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tokenType = null,
-    Object? accessToken = null,
-    Object? expiresIn = null,
-    Object? refreshToken = null,
+    Object? tokenType = freezed,
+    Object? accessToken = freezed,
+    Object? expiresIn = freezed,
+    Object? refreshToken = freezed,
   }) {
     return _then(_$ResponseUserModelImpl(
-      tokenType: null == tokenType
+      tokenType: freezed == tokenType
           ? _value.tokenType
           : tokenType // ignore: cast_nullable_to_non_nullable
-              as String,
-      accessToken: null == accessToken
+              as String?,
+      accessToken: freezed == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
-              as String,
-      expiresIn: null == expiresIn
+              as String?,
+      expiresIn: freezed == expiresIn
           ? _value.expiresIn
           : expiresIn // ignore: cast_nullable_to_non_nullable
-              as String,
-      refreshToken: null == refreshToken
+              as String?,
+      refreshToken: freezed == refreshToken
           ? _value.refreshToken
           : refreshToken // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -139,22 +139,19 @@ class __$$ResponseUserModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ResponseUserModelImpl implements _ResponseUserModel {
   const _$ResponseUserModelImpl(
-      {required this.tokenType,
-      required this.accessToken,
-      required this.expiresIn,
-      required this.refreshToken});
+      {this.tokenType, this.accessToken, this.expiresIn, this.refreshToken});
 
   factory _$ResponseUserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ResponseUserModelImplFromJson(json);
 
   @override
-  final String tokenType;
+  final String? tokenType;
   @override
-  final String accessToken;
+  final String? accessToken;
   @override
-  final String expiresIn;
+  final String? expiresIn;
   @override
-  final String refreshToken;
+  final String? refreshToken;
 
   @override
   String toString() {
@@ -198,22 +195,22 @@ class _$ResponseUserModelImpl implements _ResponseUserModel {
 
 abstract class _ResponseUserModel implements ResponseUserModel {
   const factory _ResponseUserModel(
-      {required final String tokenType,
-      required final String accessToken,
-      required final String expiresIn,
-      required final String refreshToken}) = _$ResponseUserModelImpl;
+      {final String? tokenType,
+      final String? accessToken,
+      final String? expiresIn,
+      final String? refreshToken}) = _$ResponseUserModelImpl;
 
   factory _ResponseUserModel.fromJson(Map<String, dynamic> json) =
       _$ResponseUserModelImpl.fromJson;
 
   @override
-  String get tokenType;
+  String? get tokenType;
   @override
-  String get accessToken;
+  String? get accessToken;
   @override
-  String get expiresIn;
+  String? get expiresIn;
   @override
-  String get refreshToken;
+  String? get refreshToken;
   @override
   @JsonKey(ignore: true)
   _$$ResponseUserModelImplCopyWith<_$ResponseUserModelImpl> get copyWith =>

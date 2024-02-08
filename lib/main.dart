@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
+import 'package:projekt_grupowy/models/post_login_model.dart';
 import 'package:projekt_grupowy/models/response_user_model.dart';
 import 'package:projekt_grupowy/screens/auth/login_screen.dart';
 
-void _registerServices() {
-  // GetIt.I.registerSingleton<AdsService>(AdsService());
-}
+// void _registerServices() {
+//   GetIt.I.registerSingleton<AdsService>(AdsService());
+// }
 
 void _registerModels() {
   GetIt.I
       .registerFactoryParam<ResponseUserModel, Map<String, dynamic>, String?>(
           (param1, param2) => ResponseUserModel.fromJson(param1));
+  GetIt.I.registerFactoryParam<PostLoginModel, Map<String, dynamic>, String?>(
+      (param1, param2) => PostLoginModel.fromJson(param1));
 }
 
 void main() {
