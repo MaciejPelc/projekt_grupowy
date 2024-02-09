@@ -7,7 +7,7 @@ class ResponseUserModel with _$ResponseUserModel {
   const factory ResponseUserModel({
     String? tokenType,
     String? accessToken,
-    String? expiresIn,
+    int? expiresIn,
     String? refreshToken,
   }) = _ResponseUserModel;
   factory ResponseUserModel.fromJson(Map<String, Object?> json) =>

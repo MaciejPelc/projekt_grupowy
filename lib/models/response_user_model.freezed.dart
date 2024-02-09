@@ -22,7 +22,7 @@ ResponseUserModel _$ResponseUserModelFromJson(Map<String, dynamic> json) {
 mixin _$ResponseUserModel {
   String? get tokenType => throw _privateConstructorUsedError;
   String? get accessToken => throw _privateConstructorUsedError;
-  String? get expiresIn => throw _privateConstructorUsedError;
+  int? get expiresIn => throw _privateConstructorUsedError;
   String? get refreshToken => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $ResponseUserModelCopyWith<$Res> {
   $Res call(
       {String? tokenType,
       String? accessToken,
-      String? expiresIn,
+      int? expiresIn,
       String? refreshToken});
 }
 
@@ -74,7 +74,7 @@ class _$ResponseUserModelCopyWithImpl<$Res, $Val extends ResponseUserModel>
       expiresIn: freezed == expiresIn
           ? _value.expiresIn
           : expiresIn // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       refreshToken: freezed == refreshToken
           ? _value.refreshToken
           : refreshToken // ignore: cast_nullable_to_non_nullable
@@ -94,7 +94,7 @@ abstract class _$$ResponseUserModelImplCopyWith<$Res>
   $Res call(
       {String? tokenType,
       String? accessToken,
-      String? expiresIn,
+      int? expiresIn,
       String? refreshToken});
 }
 
@@ -126,7 +126,7 @@ class __$$ResponseUserModelImplCopyWithImpl<$Res>
       expiresIn: freezed == expiresIn
           ? _value.expiresIn
           : expiresIn // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       refreshToken: freezed == refreshToken
           ? _value.refreshToken
           : refreshToken // ignore: cast_nullable_to_non_nullable
@@ -149,7 +149,7 @@ class _$ResponseUserModelImpl implements _ResponseUserModel {
   @override
   final String? accessToken;
   @override
-  final String? expiresIn;
+  final int? expiresIn;
   @override
   final String? refreshToken;
 
@@ -197,7 +197,7 @@ abstract class _ResponseUserModel implements ResponseUserModel {
   const factory _ResponseUserModel(
       {final String? tokenType,
       final String? accessToken,
-      final String? expiresIn,
+      final int? expiresIn,
       final String? refreshToken}) = _$ResponseUserModelImpl;
 
   factory _ResponseUserModel.fromJson(Map<String, dynamic> json) =
@@ -208,7 +208,7 @@ abstract class _ResponseUserModel implements ResponseUserModel {
   @override
   String? get accessToken;
   @override
-  String? get expiresIn;
+  int? get expiresIn;
   @override
   String? get refreshToken;
   @override

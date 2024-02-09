@@ -8,6 +8,9 @@ class AuthLogin extends AuthEvent {
   AuthLogin({required this.postLoginModel});
 }
 
-class AuthRegister extends AuthEvent {}
+class AuthRegister extends AuthEvent {
+  PostLoginModel postLoginModel = const PostLoginModel();
+  AuthRegister({required this.postLoginModel});
+}
 
 class AuthLogout extends AuthEvent {}

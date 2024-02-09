@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projekt_grupowy/routing/main_screen.dart';
+import 'package:projekt_grupowy/bloc/auth_bloc/auth_bloc.dart';
+import 'package:projekt_grupowy/screens/main_screen.dart';
 import 'package:projekt_grupowy/screens/auth/login_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -12,9 +13,10 @@ class AppRouter {
           settings: settings,
         );
       case LoginScreen.routeName:
-        var link = settings.arguments as String;
         return PageTransition(
-          child: const LoginScreen(),
+          child: LoginScreen(
+            authBloc: settings.arguments as AuthBloc,
+          ),
           type: PageTransitionType.rightToLeft,
           settings: settings,
         );

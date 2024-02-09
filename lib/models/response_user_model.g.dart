@@ -11,7 +11,7 @@ _$ResponseUserModelImpl _$$ResponseUserModelImplFromJson(
     _$ResponseUserModelImpl(
       tokenType: json['tokenType'] as String?,
       accessToken: json['accessToken'] as String?,
-      expiresIn: json['expiresIn'] as String?,
+      expiresIn: json['expiresIn'] as int?,
       refreshToken: json['refreshToken'] as String?,
     );
 

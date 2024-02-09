@@ -9,4 +9,10 @@ class ProjectService {
       body: postLoginModel,
     );
   }
+
+  Future<void> register(PostLoginModel postLoginModel) async =>
+      await RestApi.I.postVoid(
+        endpoint: "/api/auth/register",
+        body: postLoginModel,
+      );
 }

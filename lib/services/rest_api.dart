@@ -15,10 +15,10 @@ abstract class RestApi {
     required String endpoint,
     dynamic body,
   });
-  // Future<void> postVoid<T extends Object>({
-  //   required String endpoint,
-  //   dynamic body,
-  // });
+  Future<void> postVoid<T extends Object>({
+    required String endpoint,
+    dynamic body,
+  });
   Future<T> put<T extends Object>({
     required String endpoint,
     dynamic body,
@@ -38,13 +38,14 @@ abstract class RestApi {
 //dio
 class RestApiImplementation implements RestApi {
   final dio = Dio();
-  String baseUrl = Constants.link;
+  // String baseUrl = Constants.linkLocal;
+  String baseUrl = Constants.linkProd;
 
   Future<void> setDioToken() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final String? token = prefs.getString(Constants.accessToken);
+    // final SharedPreferences prefs = await SharedPreferences.getInstance();
+    // final String? token = prefs.getString(Constants.accessToken);
 
-    dio.options.headers["Authorization"] = "Bearer $token";
+    // dio.options.headers["Authorization"] = "Bearer $token";
   }
 
   @override
@@ -142,28 +143,28 @@ class RestApiImplementation implements RestApi {
     }
   }
 
-  // ///osobna wojda dla void, zweryfikować poprawność
-  // @override
-  // Future<void> postVoid<T extends Object>({
-  //   required String endpoint,
-  //   dynamic body,
-  // }) async {
-  //   try {
-  //     await setDioToken();
-  //     var result = await dio.post(baseUrl + endpoint,
-  //         data: body != null ? body.toJson() : "",
-  //         options: Options(
-  //             followRedirects: false,
-  //             validateStatus: (status) {
-  //               return status! < 500;
-  //             }));
-  //     if (result.statusCode != 200) {
-  //       throw (Error());
-  //     }
-  //   } catch (e) {
-  //     print(e.toString());
-  //   }
-  // }
+  ///osobna wojda dla void, zweryfikować poprawność
+  @override
+  Future<void> postVoid<T extends Object>({
+    required String endpoint,
+    dynamic body,
+  }) async {
+    try {
+      await setDioToken();
+      var result = await dio.post(baseUrl + endpoint,
+          data: body != null ? body.toJson() : "",
+          options: Options(
+              followRedirects: false,
+              validateStatus: (status) {
+                return status! < 500;
+              }));
+      if (result.statusCode != 200) {
+        throw (Error());
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 
   // @override
   // Future<void> download<T extends Object>(

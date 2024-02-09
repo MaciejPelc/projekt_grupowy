@@ -7,6 +7,8 @@ final class AuthInitial extends AuthState {}
 
 final class AuthLoading extends AuthState {}
 
+final class AuthRegistered extends AuthState {}
+
 final class AuthLogged extends AuthState {}
 
 final class AuthError extends AuthState {

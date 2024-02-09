@@ -14,7 +14,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     on<AuthLogin>(_authLogin);
 
-    on<AuthRegister>(((event, emit) {}));
+    on<AuthRegister>(_authRegister);
   }
 
   Future<void> _authLogin(AuthLogin event, Emitter<AuthState> emit) async {
@@ -27,11 +27,23 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       responseUserModel = await authRepository.login(event.postLoginModel);
 
       if (responseUserModel.accessToken != null) {
-        emit(AuthError(message: "Error"));
-      } else {
         await prefs.setString("access_token", responseUserModel.accessToken!);
         emit(AuthLogged());
+      } else {
+        emit(AuthError(message: "Error"));
       }
+    } catch (e) {
+      emit(AuthError(message: e.toString()));
+    }
+  }
+
+  Future<void> _authRegister(
+      AuthRegister event, Emitter<AuthState> emit) async {
+    try {
+      emit(AuthLoading());
+      AuthRepository authRepository = AuthRepository();
+      await authRepository.register(event.postLoginModel);
+      emit(AuthRegistered());
     } catch (e) {
       emit(AuthError(message: e.toString()));
     }

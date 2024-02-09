@@ -7,4 +7,7 @@ class AuthRepository {
 
   Future<ResponseUserModel> login(PostLoginModel loginModel) async =>
       await projectRepository.auth(loginModel);
+
+  Future<void> register(PostLoginModel loginModel) async =>
+      await projectRepository.register(loginModel);
 }
