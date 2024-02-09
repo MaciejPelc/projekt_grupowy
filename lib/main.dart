@@ -26,8 +26,8 @@ void _registerModels() {
       (param1, param2) => PostLoginModel.fromJson(param1));
   GetIt.I.registerFactoryParam<ResponseProductModel, Map<String, dynamic>,
       String?>((param1, param2) => ResponseProductModel.fromJson(param1));
-  GetIt.I.registerFactoryParam<Items, Map<String, dynamic>, String?>(
-      (param1, param2) => Items.fromJson(param1));
+  // GetIt.I.registerFactoryParam<Items, Map<String, dynamic>, String?>(
+  //     (param1, param2) => Items.fromJson(param1));
 }
 
 void main() {

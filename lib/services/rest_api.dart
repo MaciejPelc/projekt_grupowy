@@ -86,7 +86,7 @@ class RestApiImplementation implements RestApi {
                 return status! < 500;
               }));
       if (result.statusCode == 200) {
-        return getModelFromList<T>(result.data);
+        return getModelFromMap<T>(result.data);
       } else {
         return getGeneralError<T>();
       }

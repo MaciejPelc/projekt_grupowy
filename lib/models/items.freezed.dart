@@ -25,7 +25,7 @@ mixin _$Items {
   String? get description => throw _privateConstructorUsedError;
   String? get categoryId => throw _privateConstructorUsedError;
   String? get categoryName => throw _privateConstructorUsedError;
-  int? get price => throw _privateConstructorUsedError;
+  double? get price => throw _privateConstructorUsedError;
   bool? get isAvailable => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $ItemsCopyWith<$Res> {
       String? description,
       String? categoryId,
       String? categoryName,
-      int? price,
+      double? price,
       bool? isAvailable});
 }
 
@@ -93,7 +93,7 @@ class _$ItemsCopyWithImpl<$Res, $Val extends Items>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       isAvailable: freezed == isAvailable
           ? _value.isAvailable
           : isAvailable // ignore: cast_nullable_to_non_nullable
@@ -115,7 +115,7 @@ abstract class _$$ItemsImplCopyWith<$Res> implements $ItemsCopyWith<$Res> {
       String? description,
       String? categoryId,
       String? categoryName,
-      int? price,
+      double? price,
       bool? isAvailable});
 }
 
@@ -162,7 +162,7 @@ class __$$ItemsImplCopyWithImpl<$Res>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       isAvailable: freezed == isAvailable
           ? _value.isAvailable
           : isAvailable // ignore: cast_nullable_to_non_nullable
@@ -197,7 +197,7 @@ class _$ItemsImpl implements _Items {
   @override
   final String? categoryName;
   @override
-  final int? price;
+  final double? price;
   @override
   final bool? isAvailable;
 
@@ -250,7 +250,7 @@ abstract class _Items implements Items {
       final String? description,
       final String? categoryId,
       final String? categoryName,
-      final int? price,
+      final double? price,
       final bool? isAvailable}) = _$ItemsImpl;
 
   factory _Items.fromJson(Map<String, dynamic> json) = _$ItemsImpl.fromJson;
@@ -266,7 +266,7 @@ abstract class _Items implements Items {
   @override
   String? get categoryName;
   @override
-  int? get price;
+  double? get price;
   @override
   bool? get isAvailable;
   @override

@@ -12,7 +12,7 @@ _$ItemsImpl _$$ItemsImplFromJson(Map<String, dynamic> json) => _$ItemsImpl(
       description: json['description'] as String?,
       categoryId: json['categoryId'] as String?,
       categoryName: json['categoryName'] as String?,
-      price: json['price'] as int?,
+      price: (json['price'] as num?)?.toDouble(),
       isAvailable: json['isAvailable'] as bool?,
     );
 

@@ -20,9 +20,10 @@ ResponseProductModel _$ResponseProductModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ResponseProductModel {
-  int? get pageNumber => throw _privateConstructorUsedError;
-  int? get totalPages => throw _privateConstructorUsedError;
-  int? get totalCount => throw _privateConstructorUsedError;
+  List<Items>? get items => throw _privateConstructorUsedError;
+  double? get pageNumber => throw _privateConstructorUsedError;
+  double? get totalPages => throw _privateConstructorUsedError;
+  double? get totalCount => throw _privateConstructorUsedError;
   bool? get hasPreviousPage => throw _privateConstructorUsedError;
   bool? get hasNextPage => throw _privateConstructorUsedError;
 
@@ -39,9 +40,10 @@ abstract class $ResponseProductModelCopyWith<$Res> {
       _$ResponseProductModelCopyWithImpl<$Res, ResponseProductModel>;
   @useResult
   $Res call(
-      {int? pageNumber,
-      int? totalPages,
-      int? totalCount,
+      {List<Items>? items,
+      double? pageNumber,
+      double? totalPages,
+      double? totalCount,
       bool? hasPreviousPage,
       bool? hasNextPage});
 }
@@ -60,6 +62,7 @@ class _$ResponseProductModelCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? items = freezed,
     Object? pageNumber = freezed,
     Object? totalPages = freezed,
     Object? totalCount = freezed,
@@ -67,18 +70,22 @@ class _$ResponseProductModelCopyWithImpl<$Res,
     Object? hasNextPage = freezed,
   }) {
     return _then(_value.copyWith(
+      items: freezed == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<Items>?,
       pageNumber: freezed == pageNumber
           ? _value.pageNumber
           : pageNumber // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       totalPages: freezed == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       totalCount: freezed == totalCount
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       hasPreviousPage: freezed == hasPreviousPage
           ? _value.hasPreviousPage
           : hasPreviousPage // ignore: cast_nullable_to_non_nullable
@@ -100,9 +107,10 @@ abstract class _$$ResponseProductModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? pageNumber,
-      int? totalPages,
-      int? totalCount,
+      {List<Items>? items,
+      double? pageNumber,
+      double? totalPages,
+      double? totalCount,
       bool? hasPreviousPage,
       bool? hasNextPage});
 }
@@ -118,6 +126,7 @@ class __$$ResponseProductModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? items = freezed,
     Object? pageNumber = freezed,
     Object? totalPages = freezed,
     Object? totalCount = freezed,
@@ -125,18 +134,22 @@ class __$$ResponseProductModelImplCopyWithImpl<$Res>
     Object? hasNextPage = freezed,
   }) {
     return _then(_$ResponseProductModelImpl(
+      items: freezed == items
+          ? _value._items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<Items>?,
       pageNumber: freezed == pageNumber
           ? _value.pageNumber
           : pageNumber // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       totalPages: freezed == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       totalCount: freezed == totalCount
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       hasPreviousPage: freezed == hasPreviousPage
           ? _value.hasPreviousPage
           : hasPreviousPage // ignore: cast_nullable_to_non_nullable
@@ -153,21 +166,33 @@ class __$$ResponseProductModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ResponseProductModelImpl implements _ResponseProductModel {
   const _$ResponseProductModelImpl(
-      {this.pageNumber,
+      {final List<Items>? items,
+      this.pageNumber,
       this.totalPages,
       this.totalCount,
       this.hasPreviousPage,
-      this.hasNextPage});
+      this.hasNextPage})
+      : _items = items;
 
   factory _$ResponseProductModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ResponseProductModelImplFromJson(json);
 
+  final List<Items>? _items;
   @override
-  final int? pageNumber;
+  List<Items>? get items {
+    final value = _items;
+    if (value == null) return null;
+    if (_items is EqualUnmodifiableListView) return _items;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
-  final int? totalPages;
+  final double? pageNumber;
   @override
-  final int? totalCount;
+  final double? totalPages;
+  @override
+  final double? totalCount;
   @override
   final bool? hasPreviousPage;
   @override
@@ -175,7 +200,7 @@ class _$ResponseProductModelImpl implements _ResponseProductModel {
 
   @override
   String toString() {
-    return 'ResponseProductModel(pageNumber: $pageNumber, totalPages: $totalPages, totalCount: $totalCount, hasPreviousPage: $hasPreviousPage, hasNextPage: $hasNextPage)';
+    return 'ResponseProductModel(items: $items, pageNumber: $pageNumber, totalPages: $totalPages, totalCount: $totalCount, hasPreviousPage: $hasPreviousPage, hasNextPage: $hasNextPage)';
   }
 
   @override
@@ -183,6 +208,7 @@ class _$ResponseProductModelImpl implements _ResponseProductModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResponseProductModelImpl &&
+            const DeepCollectionEquality().equals(other._items, _items) &&
             (identical(other.pageNumber, pageNumber) ||
                 other.pageNumber == pageNumber) &&
             (identical(other.totalPages, totalPages) ||
@@ -197,8 +223,14 @@ class _$ResponseProductModelImpl implements _ResponseProductModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, pageNumber, totalPages,
-      totalCount, hasPreviousPage, hasNextPage);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_items),
+      pageNumber,
+      totalPages,
+      totalCount,
+      hasPreviousPage,
+      hasNextPage);
 
   @JsonKey(ignore: true)
   @override
@@ -218,9 +250,10 @@ class _$ResponseProductModelImpl implements _ResponseProductModel {
 
 abstract class _ResponseProductModel implements ResponseProductModel {
   const factory _ResponseProductModel(
-      {final int? pageNumber,
-      final int? totalPages,
-      final int? totalCount,
+      {final List<Items>? items,
+      final double? pageNumber,
+      final double? totalPages,
+      final double? totalCount,
       final bool? hasPreviousPage,
       final bool? hasNextPage}) = _$ResponseProductModelImpl;
 
@@ -228,11 +261,13 @@ abstract class _ResponseProductModel implements ResponseProductModel {
       _$ResponseProductModelImpl.fromJson;
 
   @override
-  int? get pageNumber;
+  List<Items>? get items;
   @override
-  int? get totalPages;
+  double? get pageNumber;
   @override
-  int? get totalCount;
+  double? get totalPages;
+  @override
+  double? get totalCount;
   @override
   bool? get hasPreviousPage;
   @override

@@ -10,7 +10,7 @@ class Items with _$Items {
     String? description,
     String? categoryId,
     String? categoryName,
-    int? price,
+    double? price,
     bool? isAvailable,
   }) = _Items;
   factory Items.fromJson(Map<String, Object?> json) => _$ItemsFromJson(json);
