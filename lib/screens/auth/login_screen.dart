@@ -8,6 +8,7 @@ import 'package:projekt_grupowy/auth_components/utlis/text_utils.dart';
 import 'package:projekt_grupowy/bloc/auth_bloc/auth_bloc.dart';
 import 'package:projekt_grupowy/helpers/regexp_helper.dart';
 import 'package:projekt_grupowy/models/post_login_model.dart';
+import 'package:projekt_grupowy/widgets/bacground.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({
@@ -168,7 +169,9 @@ class _LoginScreenState extends State<LoginScreen> {
               return validatorText;
             },
             controller: controller,
-            style: const TextStyle(color: Colors.white),
+            style: const TextStyle(
+              color: Colors.white,
+            ),
             decoration: InputDecoration(
               suffixIcon: Icon(
                 icon,
@@ -183,13 +186,8 @@ class _LoginScreenState extends State<LoginScreen> {
       ];
 
   Widget registrationScreen(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage(bgList[selectedIndex]), fit: BoxFit.fill),
-      ),
-      alignment: Alignment.center,
-      child: Container(
+    return Background(
+      content: Container(
         height: 500,
         width: 330,
         decoration: BoxDecoration(
@@ -298,13 +296,8 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Widget loginScreen(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage(bgList[selectedIndex]), fit: BoxFit.fill),
-      ),
-      alignment: Alignment.center,
-      child: Container(
+    return Background(
+      content: Container(
         height: 400,
         width: 330,
         decoration: BoxDecoration(

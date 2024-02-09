@@ -1,4 +1,5 @@
 import 'package:projekt_grupowy/models/post_login_model.dart';
+import 'package:projekt_grupowy/models/response_product_model.dart';
 import 'package:projekt_grupowy/models/response_user_model.dart';
 import 'package:projekt_grupowy/services/rest_api.dart';
 
@@ -7,6 +8,12 @@ class ProjectService {
     return await RestApi.I.post(
       endpoint: "api/auth/login",
       body: postLoginModel,
+    );
+  }
+
+  Future<ResponseProductModel> getProducts() async {
+    return await RestApi.I.get(
+      endpoint: "/api/Products",
     );
   }
 

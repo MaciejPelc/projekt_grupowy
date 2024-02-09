@@ -15,6 +15,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthLogin>(_authLogin);
 
     on<AuthRegister>(_authRegister);
+
+    on<AuthLogout>(_authLogout);
   }
 
   Future<void> _authLogin(AuthLogin event, Emitter<AuthState> emit) async {
@@ -44,6 +46,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       AuthRepository authRepository = AuthRepository();
       await authRepository.register(event.postLoginModel);
       emit(AuthRegistered());
+    } catch (e) {
+      emit(AuthError(message: e.toString()));
+    }
+  }
+
+  Future<void> _authLogout(AuthLogout event, Emitter<AuthState> emit) async {
+    try {
+      emit(AuthLoading());
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.remove('access_token');
+      emit(AuthLoggedOut());
     } catch (e) {
       emit(AuthError(message: e.toString()));
     }

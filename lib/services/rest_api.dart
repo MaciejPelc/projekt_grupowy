@@ -42,10 +42,10 @@ class RestApiImplementation implements RestApi {
   String baseUrl = Constants.linkProd;
 
   Future<void> setDioToken() async {
-    // final SharedPreferences prefs = await SharedPreferences.getInstance();
-    // final String? token = prefs.getString(Constants.accessToken);
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? token = prefs.getString(Constants.accessToken);
 
-    // dio.options.headers["Authorization"] = "Bearer $token";
+    dio.options.headers["Authorization"] = "Bearer $token";
   }
 
   @override
